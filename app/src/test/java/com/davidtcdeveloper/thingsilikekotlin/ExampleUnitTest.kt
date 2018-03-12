@@ -11,6 +11,24 @@ import org.junit.Test
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        val expected = OperationResult(2)
+        val result = sum(1, 1)
+        print("Result of sum was: ${result.value}, ${result.description}")
+        assertEquals(expected.value, result.value)
+        assertEquals(expected.description, result.description)
+    }
+
+    @Test
+    fun pow_isCorrect() {
+        assertEquals(4.0, pow(2, 2), 0.0)
+    }
+
+    @Test
+    fun stringRepresentation_isCorrect() {
+        assertEquals("A few", stringRepresentation(2))
+        assertEquals("A few", 2.getStringRepresentation())
+        assertEquals("A lot", 12.getStringRepresentation())
+        assertEquals(1, stringRepresentation("A few"))
+        assertEquals("I don't know", stringRepresentation(null))
     }
 }
